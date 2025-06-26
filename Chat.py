@@ -20,7 +20,7 @@ url='http://localhost:11434/api/chat'
 input_data=input("please input：")
 while input_data!="#exit":
     post_message=json.dumps({
-        "model":"llava",
+        "model":"Your Ollama model",
         "messages":datas+[
             {
                 "role":"user",
