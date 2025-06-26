@@ -9,7 +9,7 @@ def generate_random_string(length):
     letters = string.ascii_letters
     return ''.join(random.choice(letters) for _ in range(length))
 def get_search(searching_content:str)->dict:
-    tavily_client=TavilyClient(api_key="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")
+    tavily_client=TavilyClient(api_key="Your Key")
     return tavily_client.search(searching_content,include_images=True,include_answer=True)
 
 datas=[]
@@ -22,7 +22,7 @@ class Chat:
 
         
         post_message=json.dumps({
-            "model":"llava",
+            "model":"Your Ollama model",
             "messages":datas+[
                 {
                     "role":"user",
@@ -43,7 +43,7 @@ class Chat:
             if args!=[]:
                 search_result=get_search(args[0]["args"]["searching_content"])["answer"]
                 post_message=json.dumps({
-                    "model":"llava",
+                    "model":"Your function_calling model.",
                     "messages":datas+[
                         {
                             "role":"system",
