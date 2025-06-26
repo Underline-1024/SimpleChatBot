@@ -10,14 +10,14 @@ def generate_random_string(length):
     letters = string.ascii_letters
     return ''.join(random.choice(letters) for _ in range(length))
 def get_search(searching_content:str)->dict:
-    tavily_client=TavilyClient(api_key="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")
+    tavily_client=TavilyClient(api_key="Your Key")
     return tavily_client.search(searching_content,include_images=True,include_answer=True)
 
 datas=[]
 with open("data.json","r",encoding="utf-8") as f:
     datas=json.loads(f.read())
 url='http://localhost:11434/api/chat'
-input_data=input("请输入：")
+input_data=input("please input：")
 while input_data!="#exit":
     post_message=json.dumps({
         "model":"llava",
@@ -60,6 +60,6 @@ while input_data!="#exit":
     t2s.text2speech(text=json.loads(post.text)["message"]["content"],file_name="soundfile")
 
     datas.append(json.loads(post.text)["message"])
-    input_data=input("请输入：")
+    input_data=input("please input：")
 with open("data.json","w",encoding="utf-8") as f:
     f.write(json.dumps(datas))
