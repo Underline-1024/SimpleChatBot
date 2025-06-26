@@ -1,7 +1,7 @@
 import requests
 import json
 content=json.dumps({
-                    "appId": 102090954,
-                    "clientSecret": "0aAkKuU4fGrS3eFrT5hJvXAnQ3gJwaEs",
+                    "appId": "Your Appid",
+                    "clientSecret": "Your Secret Key",
                 },)
 print(requests.get("https://bots.qq.com/app/getAppAccessToken",data="").text)
